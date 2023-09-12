@@ -27,7 +27,7 @@ Step-by-step setting up a Django project and using its essential parts:
 - Create test data for your model using either the admin interface or scripts.
 - To test how templates present data, access URLs connected to views.
 11. Optional Deployment:
-- If necessary, use hosting providers like Heroku, AWS, or DigitalOcean to deploy your Django application into production. adhere to their deployment instructions.
+- If necessary, use hosting providers like Adaptable.io to deploy your Django application into production. adhere to their deployment instructions.
 - These steps will help to establish a working Django web application that includes models, views, templates, and URLs.
 
 Create a diagram explaining the flow of client requests to a Django web app and its response. Also in the diagram, explain the connections between urls.py, views.py, models.py, and the HTML file(s).
