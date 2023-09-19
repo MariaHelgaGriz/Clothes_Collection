@@ -46,7 +46,7 @@ What is MVC, MVT, and MVVM? Explain the differences between the three.
 
 Software applications are organized using the architectural patterns MVC, MVT, and MVVM, which define specific roles for components. In MVC, the Controller is in charge of user input and flow control, the View is in charge of presentation, and the Model is responsible for data and business logic. MVT, as used in Django, is similar to MVC but provides a Template to customize the user interface and permits some control logic in the View. The ViewModel acts as a go-between for the Model and View in MVVM, which emphasizes a more adaptable and reactive approach. It performs exceptionally well with data-binding frameworks like Angular and Vue. In conclusion, MVVM enables improved separation of concerns, particularly in modern front-end development, enabling fast data processing and presentation. MVC and MVT both have their place in standard and web applications.
 
-ASSIGNMENT 2
+ASSIGNMENT 3
 What is the difference between POST form and GET form in Django? in one paragraph
 
 The main difference between POST and GET forms in Django is how they manage form data submission. Using a POST form increases security because the form data is not exposed in the URL and is transmitted in the request body, making it appropriate for sensitive or massive data such as login credentials or file uploads. In contrast, a GET form adds form data to the URL as query parameters, making it appropriate for straightforward data retrieval or search queries, but the data is visible in the URL, which may not be the best option for sensitive information.
