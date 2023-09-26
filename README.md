@@ -76,7 +76,7 @@ Step 3: Set Up URL Routing for Views
 In app's urls.py file, import the views created.
 Define URL patterns for each view using Django's path or re_path function.
 
-ASSIGNMENT 3
+ASSIGNMENT 4
 
 What is UserCreationForm in Django? Explain its advantages and disadvantages.
 
