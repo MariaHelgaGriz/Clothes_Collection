@@ -76,6 +76,68 @@ Step 3: Set Up URL Routing for Views
 In app's urls.py file, import the views created.
 Define URL patterns for each view using Django's path or re_path function.
 
+ASSIGNMENT 3
+
+What is UserCreationForm in Django? Explain its advantages and disadvantages.
+
+The UserCreationForm in Django is a built-in form class provided by the Django system for the purpose of creating new user accounts. It is located within the 'django.contrib.auth.forms' module and is designed to streamline the creation of user registration forms in Django web applications. The advantages of utilizing the 'UserCreationForm' are its user-friendliness, offering pre-defined fields for common user registration details like username, email, and password, and its built-in validation checks, ensuring email uniqueness and password security compliance. Additionally, the form fields are easily customizable, and once a user registers, they can promptly log in, with their information securely stored in the database. However, there are certain disadvantages, including the form's inability to cover all registration data, necessitating the creation of custom forms for additional information, which may require a deeper understanding of Django's forms framework. Additionally, achieving a customized user interface may require additional CSS and templates. Lastly, it lacks built-in email verification functionality, necessitating the manual implementation of this feature.
+
+What is the difference between authentication and authorization in a Django application? Why are both important?
+
+Authentication and authorization serve distinct purposes in a Django application. Authentication validates a user's identity, while authorization determines the actions and resources an authenticated user can access and manipulate. These two components are essential because they collaborate to establish a secure and controlled user environment. Authentication prevents unauthorized access to the application, and authorization safeguards data and privacy. In a well-designed Django application, the synergy between these elements ensures both user authentication and controlled access, fostering data security and privacy.
+
+
+What are cookies in website? How does Django use cookies to manage user session data?
+
+Cookies are small data pieces sent by websites to users' web browsers and saved on their devices to record interactions. In Django, when a user accesses a site, a unique ID is created for them through the built-in framework. This framework also employs cookies to hold session data on the user's device, enhancing security by serializing and encrypting the information. Additionally, Django provides the option to store data securely on the server, allowing for greater security and larger storage capacity. It offers session data expiration settings to ensure validity. Furthermore, developers can customize it, specifying the data to store. It also implements CSRF protection by sending tokens with submissions to prevent unauthorized requests.
+
+Are cookies secure to use? Is there potential risk to be aware of?
+
+Correctly used, cookies are generally safe, but potential risks include data privacy concerns when sensitive information is stored without encryption, leaving it vulnerable to unauthorized access. Session hijacking is another risk, particularly if session IDs in cookies are inadequately managed. CSRF attacks are a concern when users are deceived into making malicious requests. Additionally, cookie theft can occur if attackers gain access to a user's device. Privacy concerns also arise when websites collect data through cookies without user consent. These risks can be mitigated by employing HTTPS for data encryption and by educating users about cookie usage and their options.
+
+
+Explain how you implemented the checklist above step-by-step (not just following the tutorial).
+
+Tutorial: Implementing Registration, Login, and Logout Functions
+
+Step 1: Implement Registration Functionality
+1. Use Django's built-in UserCreationForm to create a user registration form.
+2. Set up a view (e.g., register) to handle user registration requests.
+3. Process the form submission in the view, validate user input, and create a new user account using the form data.
+4. Redirect the user to a login page or the main application page after successful registration.
+
+   
+Step 2: Implement Login Functionality
+- Create a login form for users to enter their credentials (username and password).
+- Set up a view (e.g., login_user) to handle user login requests.
+- Authenticate the user using authenticate(request, username=username, password=password).
+- If authentication is successful, log the user in using login(request, user).
+- Redirect the user to the main application page upon successful login.
+
+Step 3: Implement Logout Functionality
+- Create a view (e.g., logout_user) to handle user logout requests.
+- Use Django's logout(request) to log the user out and delete their session data.
+- Redirect the user to the login page or another appropriate page after logging out.
+
+Step 4: Create User Accounts with Dummy Data
+- Register two user accounts using the registration form.
+- For each user account, create three dummy data entries using the application's model (e.g., Item model).
+
+Step 5: Connect Item Model with User
+- Modify the Item model to include a foreign key field (e.g., user) that associates each item with a specific user.
+- Ensure that each item is linked to the user who created it.
+
+Step 6: Display Logged-In User Information
+- In the main application page's template (e.g., main.html), retrieve and display information about the logged-in user.
+- Display the username of the logged-in user (e.g., request.user.username).
+
+Step 7: Apply Cookies for Last Login
+- In the login_user view, create a response object using HttpResponseRedirect and set a cookie (e.g., "last_login") with the current date and time using response.set_cookie('last_login', str(datetime.datetime.now())).
+- Display the "last_login" cookie data on the main application page (main.html) to show the user's last login time.
+
+
+
+
 
 
 
