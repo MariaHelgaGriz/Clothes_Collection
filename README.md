@@ -192,7 +192,7 @@ In the main.html template, add a button or link to delete each product, linking 
 
 Testing:
 Run Django project using python manage.py runserver.
-Access the application in a web browser, log in if necessary, and test the edit and delete features.
+Access the application in a web browser.
 
 
 
