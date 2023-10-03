@@ -191,8 +191,8 @@ Add a URL pattern for the delete_product function in urls.py.
 In the main.html template, add a button or link to delete each product, linking to the delete_product URL.
 
 Testing:
-Run your Django project using python manage.py runserver.
-Access your application in a web browser, log in if necessary, and test the edit and delete features.
+Run Django project using python manage.py runserver.
+Access the application in a web browser, log in if necessary, and test the edit and delete features.
 
 
 
