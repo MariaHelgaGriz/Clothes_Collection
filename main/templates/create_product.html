@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+   
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #FFC9D8; 
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333; 
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff; 
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    table {
+        width: 100%;
+    }
+
+    table tr td {
+        padding: 10px;
+    }
+
+    input[type="submit"] {
+        background-color: #333; 
+        color: #FFC9D8; 
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #FFC9D8; 
+        color: #333; 
+    }
+
+   
+
+</style>
+
+<h1>ADD NEW PRODUCT</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Add Product"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}
