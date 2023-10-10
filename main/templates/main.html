@@ -142,7 +142,6 @@
 
     <h5 style="text-align: center; font-size: 27px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> YOUR CART</h5>
 
-    <p style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">{{ name }} saved {{ item_count }} items in this application</p>
     <table id="product_table"></table>
     <!--table>
         <tr>
@@ -179,7 +178,7 @@
     <a href="{% url 'main:create_product' %}">
         <button class="btn">Add New Product</button>
     </a>
-    <h5>Last login session: {{ last_login }}</h5>
+    
     <a href="{% url 'main:logout' %}">
         <button class="btn">Logout</button>
     </a>
@@ -210,6 +209,7 @@
             <td>${item.fields.price}</td>
             <td>${item.fields.description}</td>
             <td>${item.fields.date_added}</td>
+            
         </tr>` 
         })
         
@@ -227,7 +227,12 @@
         document.getElementById("form").reset()
         return false
     }
-    document.getElementById("button_add").onclick = addProduct
+
+    function delete_product() {
+        fetch("{% url 'main:create_product' %}", {
+            
+        })
+    }
 </script>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -260,8 +265,11 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("button_add").onclick = addProduct;
+    </script>
 </div>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Product by AJAX</button>
 
 {% endblock content %}
