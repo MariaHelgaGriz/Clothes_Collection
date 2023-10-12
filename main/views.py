@@ -14,6 +14,8 @@ from main.forms import ProductForm
 from main.models import Product
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -138,3 +140,9 @@ def add_product_ajax(request):
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
+
+@csrf_exempt
+def delete_product_ajax(request, id):
+    product = Product.objects.get(pk=id)
+    product.delete()
+    return HttpResponse(b"DELETED", status=201)

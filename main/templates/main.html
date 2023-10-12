@@ -202,6 +202,8 @@
             <th>Price</th>
             <th>Description</th>
             <th>Date Added</th>
+            <th>Actions</th>
+            
         </tr>`
         products.forEach((item) => {
             htmlString += `\n<tr>
@@ -209,6 +211,9 @@
             <td>${item.fields.price}</td>
             <td>${item.fields.description}</td>
             <td>${item.fields.date_added}</td>
+            <td><button class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onclick="deleteProduct(${item.pk})">
+                Delete</button>
+            </td>
             
         </tr>` 
         })
@@ -228,12 +233,16 @@
         return false
     }
 
-    function delete_product() {
-        fetch("{% url 'main:create_product' %}", {
-            
-        })
+    function deleteProduct(id) {
+      fetch("delete-product-ajax/" + id, {
+        method: "POST"
+      }).then(refreshProducts)
+
+      document.getElementById("form").reset()
+      return false
     }
 </script>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -269,6 +278,7 @@
         document.getElementById("button_add").onclick = addProduct;
     </script>
 </div>
+
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Product by AJAX</button>
 
