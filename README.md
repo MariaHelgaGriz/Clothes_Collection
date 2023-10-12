@@ -194,6 +194,60 @@ Testing:
 Run Django project using python manage.py runserver.
 Access the application in a web browser.
 
+ASSIGNMENT 6
+
+Explain the difference between asynchronous programming and synchronous programming.
+
+There are two different methods for controlling processes and tasks in a computer programme: synchronous programming and asynchronous programming. Tasks are carried out consecutively, one after the other, and in a blocking manner in synchronous programming. When dealing with time-consuming or I/O-bound processes, delays in performance are possible since each job must finish before the next one begins. Unlike rather than blocking the main thread, asynchronous programming enables processes to run simultaneously. It makes it possible for a programme to start performing one task before moving on to another one without stopping to wait for the first one to finish. As a result, tasks that require waiting for external resources, such network requests, file I/O, or user interactions, can become more responsive and effective. In asynchronous programming, callbacks, promises, or async/await are frequently used.
+
+
+In the implementation of JavaScript and AJAX, there is an implemented paradigm called the event-driven programming paradigm. Explain what this paradigm means and give one example of its implementation in this assignment.
+
+JavaScript and AJAX event-driven programming paradigm is an approach where user interactions and events, rather than a straight-forward operation series, control the program's flow. Events are handled by callbacks or event handlers, which control how the programme operates.  This paradigm is used, for instance, in the assignment to manage a button click event, which causes a preset function to be called when the user hits the button. Due to their ability to respond to user activities without interfering with the main programme flow, this method makes web applications responsive and engaging. A fundamental idea in web development is event-driven programming, which enables programmers to make dynamic and user-friendly programmes by reacting to various user-initiated events like clicks, keypresses, or data retrieval.
+
+Event Listeners: To react to user activities, event listeners are attached to a variety of HTML components, such as buttons and form inputs. As an illustration, the "Add Product by AJAX" button has an event listener that, when pressed, calls the addProduct method.
+
+Asynchronous Event Handling: JavaScript functions like addProduct and refreshProducts handle events asynchronously. For example, when the "Add Product" button is clicked, the addProduct function is called, which uses the fetch API to send a POST request to add a product to the database without blocking the main thread.
+
+Explain the implementation of asynchronous programming in AJAX.
+
+The event-driven nature of JavaScript is used to implement asynchronous programming in AJAX, also known as Asynchronous JavaScript and XML, to carry out non-blocking activities. An AJAX request causes a web page to continue running other code rather than waiting for the response. This is accomplished using tools that allow the beginning of HTTP requests to a server, such as the XMLHttpRequest object or the fetch API. In order to handle multiple request phases, such as success or error, callback functions are given. Alternatives to using Promises or async/await to manage asynchronous actions more neatly and sequentially include the usage of contemporary JavaScript. By utilizing this strategy, web apps are guaranteed to be responsive and capable of rapidly completing activities, such as obtaining data from a server, without experiencing delays or obstructing the user interface.
+In this semester, the implementation of AJAX is done using the Fetch API rather than the jQuery library. Compare the two technologies and write down your opinion which technology is better to use.
+
+The requirements and context of the project strongly affect whether to use jQuery or the Fetch API to implement AJAX. Due to its native support for contemporary browsers, compatibility with contemporary JavaScript techniques, and lightweight design, the Fetch API is preferred for modern online applications. When browser compatibility is unimportant, it is a good option. On the other hand, developers who like a streamlined and user-friendly syntax and projects that need to support older browsers will find value in jQuery. Additionally, jQuery provides a wider range of tools for various web development jobs. jQuery is still relevant and useful for projects with historical requirements or where a more easy method is needed, however the Fetch API is advised for new projects targeting current browsers.
+
+Step 1: Implementing a Function to Return Data as JSON
+Create a new function in views.py called get_product_json that accepts a request as a parameter.
+In the function, query the Product model and return the data as JSON using Django's serializers.serialize.
+Set up the URL routing for get_product_json.
+
+Step 2: Implementing a Function to Add Product using AJAX
+Create a new function in views.py called add_product_ajax that accepts a request as a parameter.
+Import csrf_exempt from django.views.decorators.csrf and apply it as a decorator above the add_product_ajax function to exempt it from CSRF protection.
+In the add_product_ajax function, check if the request method is POST and extract data from the request.
+Create a new Product object with the extracted data and save it to the database.
+Return an HTTP response with a "CREATED" status if the product is successfully added.
+
+Step 3: Add Routings for the get_product_json and add_product_ajax
+Open urls.py and import the get_product_json and add_product_ajax functions.
+Add URL paths for both functions inside the urlpatterns list.
+
+Step 4: Showing the Product Data using the fetch() API
+Open main.html and delete the table code created in a previous tutorial.
+Add a <table> structure with the ID "product_table."
+Create JavaScript functions getProducts and refreshProducts to fetch and display product data using the fetch() API.
+Call the refreshProducts function to populate the table with data when the web page is opened.
+
+Step 5: Creating a Modal as a Form to Add Products
+Implement a form modal using Bootstrap in the app. The form collects data for adding new products.
+This form includes fields for name, price, and description.
+
+Step 6: Using AJAX to Add a Product
+Create a JavaScript function called addProduct to add a new product using data from the modal form.
+Use the fetch() API to send a POST request to the add_product_ajax view, including the form data as the request body.
+After a product is added, call the refreshProducts function to update the product list in the table.
+Reset the form fields after submission.
+Set the addProduct function as the onclick handler for the "Add Product" button in the modal.
 
 
 
