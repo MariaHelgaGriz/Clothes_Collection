@@ -131,6 +131,10 @@
     .label-value h5 {
         margin-right: 10px;
     }
+
+    tr.preloved-row{
+        background-color: lightgreen;
+    }
     
 </style>
 
@@ -206,7 +210,9 @@
             
         </tr>`
         products.forEach((item) => {
-            htmlString += `\n<tr>
+            let prelovedClass = item.fields.has_preloved ? "preloved-row": ""
+            htmlString += `
+            <tr class = "${prelovedClass}">
             <td>${item.fields.name}</td>
             <td>${item.fields.price}</td>
             <td>${item.fields.description}</td>
@@ -241,6 +247,15 @@
       document.getElementById("form").reset()
       return false
     }
+
+    function prelovedProduct(id) {
+      fetch("preloved-product-ajax/" + id, {
+        method: "POST"
+      }).then(refreshProducts)
+
+      document.getElementById("form").reset()
+      return false
+
 </script>
 
 

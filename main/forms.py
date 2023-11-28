@@ -5,3 +5,6 @@ class ProductForm(ModelForm):
     class Meta:
         model = Product
         fields = ["name", "price", "description"]
+    class Preloved: 
+        model = Product
+        fields= []
